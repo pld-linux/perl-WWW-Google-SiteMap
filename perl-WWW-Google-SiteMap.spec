@@ -8,13 +8,13 @@
 Summary:	WWW::Google::SiteMap - Perl extension for managing Google SiteMaps
 #Summary(pl.UTF-8):	
 Name:		perl-WWW-Google-SiteMap
-Version:	1.09
+Version:	1.10
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/WWW/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	251b6a460f98093542cddc5ee1735c48
+# Source0-md5:	c82bd63ca48a06374775ab7626cca974
 URL:		http://search.cpan.org/dist/WWW-Google-SiteMap/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -39,17 +39,17 @@ This module allows you to create and modify sitemaps.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
