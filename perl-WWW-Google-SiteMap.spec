@@ -8,7 +8,7 @@ Summary:	WWW::Google::SiteMap - Perl extension for managing Google SiteMaps
 #Summary(pl.UTF-8):	
 Name:		perl-WWW-Google-SiteMap
 Version:	1.10
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
